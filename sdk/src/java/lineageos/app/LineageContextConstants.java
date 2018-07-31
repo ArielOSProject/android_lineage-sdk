@@ -96,6 +96,7 @@ public final class LineageContextConstants {
      */
     public static final String LINEAGE_AUDIO_SERVICE = "lineageaudio";
 
+
     /**
      * Use with {@link android.content.Context#getSystemService} to retrieve a
      * {@link lineageos.app.StyleInterface} interact with system style.
@@ -117,6 +118,13 @@ public final class LineageContextConstants {
      * @hide
      */
     public static final String LINEAGE_TRUST_INTERFACE = "lineagetrust";
+
+    /**
+     * Manages enhanced audio functionality
+     *
+     * @hide
+     */
+    public static final String ARIEL_ADBLOCK_SERVICE = "arieladblock";
 
     /**
      * Features supported by the Lineage SDK.
@@ -185,5 +193,8 @@ public final class LineageContextConstants {
          */
         @SdkConstant(SdkConstant.SdkConstantType.FEATURE)
         public static final String TRUST = "org.lineageos.trust";
+
+        @SdkConstant(SdkConstant.SdkConstantType.FEATURE)
+        public static final String ADBLOCK = "com.arielos.adblock";
     }
 }
