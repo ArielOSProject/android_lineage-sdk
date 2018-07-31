@@ -122,6 +122,7 @@
     <java-symbol type="string" name="lineage_api_level" />
     <java-symbol type="string" name="lineage_updates" />
     <java-symbol type="string" name="lineage_version" />
+    <java-symbol type="string" name="lineage_vendor_security_patch" />
 
     <!-- General purpose use "unknown" string -->
     <java-symbol type="string" name="unknown" />
@@ -184,4 +185,7 @@
 
     <!-- Full screen aspect ratio -->
     <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
+
+    <!-- Notch -->
+    <java-symbol type="bool" name="config_haveNotch" />
 </resources>
