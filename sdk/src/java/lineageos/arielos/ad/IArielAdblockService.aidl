@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package arielos.ad;
+package lineageos.arielos.ad;
 
 
 

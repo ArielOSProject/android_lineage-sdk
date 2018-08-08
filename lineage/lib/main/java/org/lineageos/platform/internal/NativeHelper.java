@@ -17,7 +17,7 @@ package org.lineageos.platform.internal;
 
 import android.util.Log;
 
-class NativeHelper {
+public class NativeHelper {
 
     private static final String TAG = "Lineage-SDK-JNI";
 
