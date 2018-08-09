@@ -29,9 +29,12 @@ import org.lineageos.platform.internal.LineageSystemService;
 import org.lineageos.platform.internal.NativeHelper;
 
 import java.io.FileDescriptor;
+import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.io.FileOutputStream;
 
 import lineageos.app.LineageContextConstants;
 
@@ -59,10 +62,29 @@ public class ArielAdblockService extends LineageSystemService {
     @Override
     public void onStart() {
         publishBinderService(LineageContextConstants.ARIEL_ADBLOCK_SERVICE, mBinder);
+        blockAds();
     }
 
     private void blockAds(){
-
+        try{
+            if (DEBUG) Log.d(TAG, "Entering blockAds()");
+            File hosts_file = new File("/etc/hosts.my");
+            if(!hosts_file.exists()){
+                hosts_file.createNewFile();
+            }
+            if (DEBUG) Log.d(TAG, "Created hosts.my file");
+            FileOutputStream stream = new FileOutputStream(hosts_file);
+            try {
+                if (DEBUG) Log.d(TAG, "Writing bytes");
+                stream.write("This is ArielOS!".getBytes());
+            } finally {
+                stream.close();
+            }
+            if (DEBUG) Log.d(TAG, "Exiting blockAds()");
+        } 
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
