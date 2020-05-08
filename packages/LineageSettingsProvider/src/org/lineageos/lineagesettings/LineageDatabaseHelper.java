@@ -37,6 +37,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 import lineageos.providers.LineageSettings;
+import lineageos.utils.ArielUtils;
 
 import org.lineageos.internal.util.FileUtils;
 
@@ -438,9 +439,17 @@ public class LineageDatabaseHelper extends SQLiteOpenHelper{
             final String provisionedFlag = Settings.Global.getString(mContext.getContentResolver(),
                     Settings.Global.DEVICE_PROVISIONED);
             loadSetting(stmt, LineageSettings.Secure.LINEAGE_SETUP_WIZARD_COMPLETED, provisionedFlag);
+            loadArielSettings(stmt);
         } finally {
             if (stmt != null) stmt.close();
         }
+    }
+
+    private void loadArielSettings(SQLiteStatement stmt){
+        loadStringSetting(stmt, LineageSettings.Secure.ARIEL_MASTER_CODE, 
+                    ArielUtils.generateMasterCode(4));
+        loadIntegerSetting(stmt, LineageSettings.Secure.ARIEL_SETUP_COMPLETE,
+                    0);
     }
 
     private void loadSystemSettings(SQLiteDatabase db) {

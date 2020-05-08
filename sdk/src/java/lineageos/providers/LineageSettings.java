@@ -3092,6 +3092,21 @@ public final class LineageSettings {
         public static final Validator TRUST_WARNINGS_VALIDATOR =
                 new InclusiveIntegerRangeValidator(0, TrustInterface.TRUST_WARN_MAX_VALUE);
 
+        // Ariel specific settings
+
+        /**
+         * Code used by master device to bond with the ArielOS device. 
+         * Read only property, to be set on first boot (on db init)
+         */
+        public static final String ARIEL_MASTER_CODE = "ariel_master_code";
+
+        /**
+         * Defines if Ariel setup is complete (setup wizard done + master present)
+         * 0 - setup not complete
+         * 1 - setup completed
+         */
+        public static final String ARIEL_SETUP_COMPLETE = "ariel_setup_complete";
+
         // endregion
 
         /**
